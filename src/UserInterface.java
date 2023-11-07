@@ -12,7 +12,16 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         int isRunning = -1;
         do {
-            ui.controller.printStartMessage();
+            System.out.println("""
+                    1. Create Superhero
+                    2. Show Superheroes
+                    3. Find Superhero
+                    4. Edit Superhero
+                    5. Delete Superhero
+                    
+                    8. Load Superheros
+                    9. EXIT
+                    """);
             try {
                 isRunning = scanner.nextInt();
                 scanner.nextLine();
@@ -75,7 +84,7 @@ public class UserInterface {
                         controller.addSuperhero(superheroName, realName, superpower, creationYear, isHuman, strength);
                         System.out.println("Superhero added to database");
                     }
-                    case 2 -> { //TODO må ikke snakke med superhero direkte
+                    case 2 -> {
                         ArrayList<Superhero> superheroes = controller.getDatabase();
                         for (Superhero superhero : superheroes) {
                             System.out.println("Superhero Name: " + superhero.getName());
@@ -124,7 +133,7 @@ public class UserInterface {
                     default -> System.out.println("Try again with the values stated under: ");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("not possible input. Press ENTER to continue");
+                System.out.println("Invalid input. Press ENTER to continue");
                 scanner.nextLine();
             }
 
@@ -132,5 +141,4 @@ public class UserInterface {
 
         scanner.close();
     }
-
 }

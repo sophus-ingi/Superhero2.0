@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -6,19 +7,23 @@ public class Controller {
     private Database db;
 
 
+
     public Controller(Database db) {
         this.db = db;
     }
 
     public ArrayList<Superhero> findAllSuperhero(String search) {
         return db.findAllSuperhero(search);
+
     }
+
 
     public Superhero findSuperhero(String search) {
         return db.findSuperhero(search);
     }
 
     public ArrayList<Superhero> getDatabase() {
+
         return db.getDatabase();
     }
 
@@ -38,4 +43,21 @@ public class Controller {
     public void removeSuperhero(int index) {
         db.removeSuperhero(index);
     }
+
+    public void printStartMessage(){
+        System.out.println("START MESSAGE!");
+    }
+
+    public void editSuperheroDetails(){
+
+    }
+    public void loadSuperheroes(ArrayList<Superhero> database){
+        fh.loadSuperheroes(database);
+    }
+
+    public void save(){
+        db.save();
+    }
 }
+
+

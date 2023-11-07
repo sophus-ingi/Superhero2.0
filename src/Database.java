@@ -1,17 +1,24 @@
+import java.io.File;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Database {
     private ArrayList<Superhero> database;
+    private FileHandler fileHandler;
 
     public Database() {
         database = new ArrayList<>();
+        fileHandler = new FileHandler();
     }
 
     public void addSuperhero(String superheroName, String realName, String superpower, int creationYear, boolean isHuman, int strength) {
         Superhero superhero = new Superhero(superheroName, realName, superpower, creationYear, isHuman, strength);
-        database.add(superhero);
+        database.add(superhero); // Add the superhero to the database
+        fileHandler.saveSuperheroes(database); // Call the save method to update the " file
     }
+
 
     public void addDataSuperheroes() {
         Superhero superhero = new Superhero("Batman", "Bruce Wayne", "Money", 1939, true, 98);
@@ -73,10 +80,29 @@ public class Database {
         }
     }
 
+    public void save(){
+        fileHandler.saveSuperheroes(database);
+
+    }
+
     public void removeSuperhero(int index) {
         database.remove(get(index));
 
     }
+
+   /* public static void main(String[] args) throws FileNotFoundException {
+
+        PrintStream addSuperhero = new PrintStream((""));
+        System.setOut(addSuperhero);
+
+        System.out.println("before");
+
+
+
+
+        System.out.println("after");
+
+    }*/
 
 
 }
