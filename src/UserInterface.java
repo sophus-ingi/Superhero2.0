@@ -129,7 +129,13 @@ public class UserInterface {
                         controller.removeSuperhero(searchIndex);
                         System.out.println(database);
                     }
-                    case 9 -> System.out.println("Program ended");
+                    case 8 -> {
+                        controller.loadSuperheroes(controller.getDatabase());
+                    }
+                    case 9 -> {
+                        System.out.println("Program ended");
+                        controller.save();
+                    }
                     default -> System.out.println("Try again with the values stated under: ");
                 }
             } catch (InputMismatchException e) {

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Controller {
     private Database db;
+    private FileHandler fh;
 
 
 
