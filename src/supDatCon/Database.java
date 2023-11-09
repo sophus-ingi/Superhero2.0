@@ -92,6 +92,48 @@ public class Database {
 
     }
 
+    public void setDatabase(ArrayList<Superhero> superheroes) {
+        this.database = superheroes;
+    }
+
+
+
+    public void sortIsHuman(){
+        System.out.println(" List is now sorted by is human");
+        Collections.sort(database, new IsHumanComp());
+        System.out.println(database);
+
+    }
+    public void sortRealName(){
+        System.out.println(" List is now sorted by is real name");
+        Collections.sort(database, new RealNameComp());
+        System.out.println(database);
+
+    }
+    public void sortStrength(){
+        System.out.println(" List is now sorted by is Strength");
+        Collections.sort(database, new StrengthComp());
+        System.out.println(database);
+
+    }
+    public void sortSuperPower(){
+        System.out.println(" List is now sorted by Superpower");
+        Collections.sort(database, new SuperPowerComp());
+        System.out.println(database);
+
+    }
+    public void sortYearCreated(){
+        System.out.println(" List is now sorted by is year created");
+        Collections.sort(database, new YearCreatedComp());
+        System.out.println(database);
+
+    }
+    public void sortSuperheroName(){
+        System.out.println(" List is now sorted by is human");
+        Collections.sort(database, new SuperheroNameComp());
+        System.out.println(database);
+
+    }
    /* public static void main(String[] args) throws FileNotFoundException {
 
         PrintStream addSuperhero = new PrintStream((""));

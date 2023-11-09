@@ -133,6 +133,44 @@ public class UserInterface {
                         controller.removeSuperhero(searchIndex);
                         System.out.println(database);
                     }
+                    case 7 -> {
+                        System.out.println("Sort superheroes by:");
+                        System.out.println("1. Name");
+                        System.out.println("2. Real Name");
+                        System.out.println("3. Superpower");
+                        System.out.println("4. IsHuman");
+                        System.out.println("5. Year Created");
+                        System.out.println("6. Strength");
+
+                        int sortOption = scanner.nextInt();
+                        scanner.nextLine(); // Consume the newline character
+
+                        switch (sortOption) {
+                            case 1:
+                                controller.sortSuperheroes("name");
+                                break;
+                            case 2:
+                                controller.sortSuperheroes("real name");
+                                break;
+                            case 3:
+                                controller.sortSuperheroes("superpower");
+                                break;
+                            case 4:
+                                controller.sortSuperheroes("ishuman");
+                                break;
+                            case 5:
+                                controller.sortSuperheroes("year created");
+                                break;
+                            case 6:
+                                controller.sortSuperheroes("strength");
+                                break;
+                            case 7:
+                                controller.sortSuperheroes("strength and real name");
+                                break;
+                            default:
+                                System.out.println("Invalid option");
+                        }
+                    }
                     case 8 -> {
                         controller.loadSuperheroes(controller.getDatabase());
                     }

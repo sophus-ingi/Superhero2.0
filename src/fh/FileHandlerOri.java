@@ -1,3 +1,5 @@
+package fh;
+
 import supDatCon.Superhero;
 
 import java.io.File;
@@ -11,13 +13,14 @@ import java.util.Scanner;
 
 
 
-public class FileHandler {
+public class FileHandlerOri {
     private File file = new File("superhero.txt");
 
     public void saveSuperheroes(ArrayList<Superhero> database) {
-        try (PrintStream out = new PrintStream(new FileOutputStream(file, true))) {
+        try (PrintStream out = new PrintStream(new FileOutputStream(file))) {
             for (Superhero superhero : database) {
-                out.println(superhero.getName());
+                out.println(superhero.getName() +", "+ superhero.getRealName() +", "+ superhero.getSuperPower() +", "+ superhero.getYearCreated() +", "+ superhero.isHuman() +", "+ superhero.getStrength());
+
 
             }
 
