@@ -1,3 +1,7 @@
+import supDatCon.Controller;
+import supDatCon.Database;
+import supDatCon.Superhero;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -13,11 +17,11 @@ public class UserInterface {
         int isRunning = -1;
         do {
             System.out.println("""
-                    1. Create Superhero
+                    1. Create supDatCon.Superhero
                     2. Show Superheroes
-                    3. Find Superhero
-                    4. Edit Superhero
-                    5. Delete Superhero
+                    3. Find supDatCon.Superhero
+                    4. Edit supDatCon.Superhero
+                    5. Delete supDatCon.Superhero
                     
                     8. Load Superheros
                     9. EXIT
@@ -29,7 +33,7 @@ public class UserInterface {
                     case 1 -> {
                         System.out.println("Enter superhero details:");
 
-                        System.out.print("Superhero Name: ");
+                        System.out.print("supDatCon.Superhero Name: ");
                         String superheroName = scanner.nextLine();
 
                         System.out.print("Real Name: ");
@@ -82,12 +86,12 @@ public class UserInterface {
                         }
 
                         controller.addSuperhero(superheroName, realName, superpower, creationYear, isHuman, strength);
-                        System.out.println("Superhero added to database");
+                        System.out.println("supDatCon.Superhero added to database");
                     }
                     case 2 -> {
                         ArrayList<Superhero> superheroes = controller.getDatabase();
                         for (Superhero superhero : superheroes) {
-                            System.out.println("Superhero Name: " + superhero.getName());
+                            System.out.println("supDatCon.Superhero Name: " + superhero.getName());
                             System.out.println("Real Name: " + superhero.getRealName());
                             System.out.println("Superpower: " + superhero.getSuperPower());
                             System.out.println("Creation Year: " + superhero.getYearCreated());

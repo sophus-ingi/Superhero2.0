@@ -1,7 +1,8 @@
-import java.io.File;
+package supDatCon;
+
+import supDatCon.Database;
+
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Controller {
     private Database db;

@@ -1,3 +1,5 @@
+package supDatCon;
+
 public class Superhero {
     private String name;
     private String realName;
@@ -65,7 +67,7 @@ public class Superhero {
 
     @Override
     public String toString() {
-        return "Superhero [" +
+        return "supDatCon.Superhero [" +
                 "Name: " + name +
                 ", Real name: " + realName +
                 ", Superpower: " + superPower +
