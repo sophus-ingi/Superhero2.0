@@ -1,3 +1,5 @@
+import supDatCon.Superhero;
+
 import java.io.File;
 import java.io.*;
 import java.io.FileNotFoundException;
@@ -60,9 +62,9 @@ public class FileHandler {
 /*public class FileHandler {
     private File file = new File("superhero.txt");
 
-    public void saveSuperheroes(ArrayList<Superhero> database) {
+    public void saveSuperheroes(ArrayList<supDatCon.Superhero> database) {
         try (PrintStream out = new PrintStream(new FileOutputStream(file, true))) {
-            for (Superhero superhero : database) {
+            for (supDatCon.Superhero superhero : database) {
                 out.println(superhero.getName());
             }
             System.out.println("Superheroes saved to 'superhero.txt'");
@@ -76,7 +78,7 @@ public class FileHandler {
 
 */
     /*
-    public void loadSuperheros(ArrayList<Superhero> database) {
+    public void loadSuperheros(ArrayList<supDatCon.Superhero> database) {
         Scanner scanner = null;
         scanner = new Scanner("superhero.txt");
         while (scanner.hasNextLine()) {
@@ -90,7 +92,7 @@ public class FileHandler {
                 boolean isHuman = Boolean.parseBoolean(values[4]);
                 int strength = Integer.parseInt(values[5]);
 
-                Superhero superhero = new Superhero(name, realName, superPower, yearCreated, isHuman, strength);
+                supDatCon.Superhero superhero = new supDatCon.Superhero(name, realName, superPower, yearCreated, isHuman, strength);
                 database.add(superhero);
             }
         }
