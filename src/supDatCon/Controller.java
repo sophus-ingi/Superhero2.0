@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 public class Controller {
     private Database db;
-    private FileHandler fh;
+   // private FileHandlerOri fh;
 
 
 
     public Controller(Database db) {
         this.db = db;
+        //this.fh = fh;
     }
 
     public ArrayList<Superhero> findAllSuperhero(String search) {

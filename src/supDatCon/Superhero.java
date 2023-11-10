@@ -67,12 +67,12 @@ public class Superhero {
 
     @Override
     public String toString() {
-        return "supDatCon.Superhero [" +
-                "Name: " + name +
-                ", Real name: " + realName +
-                ", Superpower: " + superPower +
-                ", Year created: " + yearCreated +
-                ", Is human: " + isHuman +
-                ", Strength: " + strength + "]";
+        return
+                name + ", " +
+                realName + ", "+
+               superPower +
+                yearCreated +
+               isHuman +
+               strength + "]";
     }
 }

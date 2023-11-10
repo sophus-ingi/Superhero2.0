@@ -1,17 +1,19 @@
 package supDatCon;
 
 import java.util.ArrayList;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.util.Scanner;
+import java.util.Collections;
+
+import fh.FileHandlerOri;
+import supDatCon.comp.*;
+
 
 public class Database {
-    private ArrayList<Superhero> database;
-    private FileHandler fileHandler;
+    private ArrayList<Superhero> superheroes;
+    private FileHandlerOri fileHandler;
 
     public Database() {
-        database = new ArrayList<>();
-        fileHandler = new FileHandler();
+        superheroes = new ArrayList<>();
+        fileHandler = new FileHandlerOri();
     }
 
     public void addSuperhero(String superheroName, String realName, String superpower, int creationYear, boolean isHuman, int strength) {
