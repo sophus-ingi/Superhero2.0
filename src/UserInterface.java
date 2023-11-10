@@ -13,6 +13,7 @@ public class UserInterface {
         UserInterface ui = new UserInterface();
         Database database = new Database();
         Controller controller = new Controller(database);
+        controller.loadSuperheroes();
         Scanner scanner = new Scanner(System.in);
         int isRunning = -1;
         do {
@@ -24,7 +25,7 @@ public class UserInterface {
                     5. Delete supDatCon.Superhero
                     
                     8. Load Superheros
-                    9. EXIT
+                    9. EXIT and Save
                     """);
             try {
                 isRunning = scanner.nextInt();
@@ -141,9 +142,12 @@ public class UserInterface {
                         System.out.println("4. IsHuman");
                         System.out.println("5. Year Created");
                         System.out.println("6. Strength");
+                        System.out.println("7. Strength and real name");
+                        System.out.println("8. Year created and name");
+                        System.out.println("9. Superpower and strength");
 
                         int sortOption = scanner.nextInt();
-                        scanner.nextLine(); // Consume the newline character
+                        scanner.nextLine();
 
                         switch (sortOption) {
                             case 1:
@@ -156,15 +160,12 @@ public class UserInterface {
                                 controller.sortSuperheroes("superpower");
                                 break;
                             case 4:
-                                controller.sortSuperheroes("ishuman");
-                                break;
-                            case 5:
                                 controller.sortSuperheroes("year created");
                                 break;
-                            case 6:
+                            case 5:
                                 controller.sortSuperheroes("strength");
                                 break;
-                            case 7:
+                            case 6:
                                 controller.sortSuperheroes("strength and real name");
                                 break;
                             default:
@@ -172,7 +173,7 @@ public class UserInterface {
                         }
                     }
                     case 8 -> {
-                        controller.loadSuperheroes(controller.getDatabase());
+                        System.out.println(controller.loadSuperheroes());
                     }
                     case 9 -> {
                         System.out.println("Program ended");

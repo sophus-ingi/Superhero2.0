@@ -1,9 +1,7 @@
 package fh;
 
 import supDatCon.Superhero;
-
 import java.io.File;
-import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -15,11 +13,12 @@ import java.util.Scanner;
 
 public class FileHandlerOri {
     private File file = new File("superhero.txt");
+    public final String DELIMITER = ",";
 
-    public void saveSuperheroes(ArrayList<Superhero> database) {
-        try (PrintStream out = new PrintStream(new FileOutputStream(file))) {
-            for (Superhero superhero : database) {
-                out.println(superhero.getName() +", "+ superhero.getRealName() +", "+ superhero.getSuperPower() +", "+ superhero.getYearCreated() +", "+ superhero.isHuman() +", "+ superhero.getStrength());
+    public void saveSuperheroes(ArrayList<Superhero> superheroes) {
+        try (PrintStream out = new PrintStream((file))) {
+            for (Superhero superhero : superheroes) {
+                out.println(superhero.getName() +","+ superhero.getRealName() +","+ superhero.getSuperPower() +","+ superhero.getYearCreated() +","+ superhero.isHuman() +","+ superhero.getStrength());
 
 
             }
@@ -30,24 +29,26 @@ public class FileHandlerOri {
         }
     }
 
-    public void loadSuperheroes(ArrayList<Superhero> database) {
+    public ArrayList<Superhero> loadSuperheroes() {
+        ArrayList<Superhero> superheroes = new ArrayList<>();
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 Superhero superhero = parseSuperhero(line);
                 if (superhero != null) {
-                    database.add(superhero);
+                    superheroes.add(superhero);
                 }
             }
-            // Sort the superheroes by name (change the sorting criterion as needed)
-            Collections.sort(database, Comparator.comparing(Superhero::getName));
+
+            Collections.sort(superheroes, Comparator.comparing(Superhero::getName));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return superheroes;
     }
 
     private Superhero parseSuperhero(String line) {
-        String[] values = line.split(";");
+        String[] values = line.split(DELIMITER);
         if (values.length == 6) {
             String name = values[0];
             String realName = values[1];

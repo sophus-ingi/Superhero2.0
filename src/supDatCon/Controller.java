@@ -1,7 +1,6 @@
 package supDatCon;
 import java.util.Collections;
 import java.util.Comparator;
-import supDatCon.Superhero;
 
 import java.util.ArrayList;
 
@@ -27,7 +26,7 @@ public class Controller {
 
     public ArrayList<Superhero> getDatabase() {
 
-        return db.getDatabase();
+        return db.getSuperheroes();
     }
 
     public void addSuperhero(String superheroName, String realName, String superpower, int creationYear, boolean isHuman, int strength) {
@@ -35,29 +34,43 @@ public class Controller {
     }
 
     public void sortSuperheroes(String sortBy) {
-        ArrayList<Superhero> superheroes = db.getDatabase();
+        ArrayList<Superhero> superheroes = db.getSuperheroes();
         System.out.println(superheroes);
         switch (sortBy.toLowerCase()) {
             case "name":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getName));
+                System.out.println("List has been sorted!");
                 break;
             case "real name":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getRealName));
+                System.out.println("List has been sorted!");
                 break;
             case "superpower":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getSuperPower));
+                System.out.println("List has been sorted!");
                 break;
             case "year created":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getYearCreated));
+                System.out.println("List has been sorted!");
                 break;
             //case "is human":
                 //Collections.sort(superheroes, Comparator.comparing(Superhero::getIshuman);
                // break;
             case "strength":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getStrength));
+                System.out.println("List has been sorted!");
                 break;
             case "strength and real name":
                 Collections.sort(superheroes, Comparator.comparing(Superhero::getStrength).thenComparing(Superhero::getRealName).reversed());
+                System.out.println("List has been sorted!");
+                break;
+            case "Year created and name":
+                Collections.sort(superheroes, Comparator.comparing(Superhero::getYearCreated).thenComparing(Superhero::getName).reversed());
+                System.out.println("List has been sorted!");
+                break;
+            case "Superpower and strength":
+                Collections.sort(superheroes, Comparator.comparing(Superhero::getSuperPower).thenComparing(Superhero::getStrength).reversed());
+                System.out.println("List has been sorted!");
                 break;
             default:
                 System.out.println("Invalid sorting attribute");
@@ -65,7 +78,7 @@ public class Controller {
 
         }
         System.out.println(superheroes);
-        db.setDatabase(superheroes);
+        db.setSuperheroes(superheroes);
 
     }
 
@@ -82,15 +95,11 @@ public class Controller {
         db.removeSuperhero(index);
     }
 
-    public void printStartMessage(){
-        System.out.println("START MESSAGE!");
-    }
-
-    public void editSuperheroDetails(){
+    public void editSuperheroDetails(){ //TODO make edit work
 
     }
-    public void loadSuperheroes(ArrayList<Superhero> database){
-        fh.loadSuperheroes(database);
+    public ArrayList<Superhero> loadSuperheroes(){
+        return db.loadSuperheroes();
     }
 
     public void save(){

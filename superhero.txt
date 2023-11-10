@@ -1,0 +1,2 @@
+Batman,Bruce Wayne,Rich,1967,true,99
+Spiderman,Peter Parker,spider,2000,true,98
